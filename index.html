@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Jade et le Granit</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Le Jade et le Granit — une chasse au trésor en sept chants.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --granit: #16161a;
+      --granit-clair: #1e1e24;
+      --pierre: #26262e;
+      --encre: #d8d3c8;
+      --encre-pale: #a8a396;
+      --jade: #6fae94;
+      --jade-sombre: #3d6b58;
+      --trait: #3a3a44;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--granit);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(111, 174, 148, 0.05), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(111, 174, 148, 0.03), transparent);
+      color: var(--encre);
+      font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 6rem;
+    }
+
+    /* ——— En-tête ——— */
+    header {
+      text-align: center;
+      margin-bottom: 5.5rem;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(2.2rem, 7vw, 3.6rem);
+      letter-spacing: 0.12em;
+      color: var(--encre);
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    header h1 .et {
+      display: block;
+      font-size: 0.38em;
+      letter-spacing: 0.55em;
+      color: var(--jade);
+      margin: 0.6em 0;
+      text-indent: 0.55em;
+    }
+
+    .sceau {
+      width: 3.2rem;
+      height: 3.2rem;
+      margin: 3rem auto 0;
+      /* rythme égal titre → sceau → boutons */
+      border: 1px solid var(--jade-sombre);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sceau::before {
+      content: "";
+      width: 0.9rem;
+      height: 0.9rem;
+      border: 1px solid var(--jade);
+    }
+
+    /* ——— Intro ——— */
+    .intro {
+      max-width: 34rem;
+      margin: 3rem auto 0;
+      color: var(--encre-pale);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ——— Liens sociaux (haut de page) ——— */
+    .social {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 3rem;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.5rem 1.15rem;
+      border-radius: 999px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--encre-pale);
+      background: transparent;
+      border: 1px solid var(--trait);
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .social .discord:hover {
+      color: #aab2f6;
+      border-color: #5865f2;
+      background: rgba(88, 101, 242, 0.12);
+    }
+
+    .social .bmc:hover {
+      color: #e7cf72;
+      border-color: #b8960e;
+      background: rgba(255, 221, 0, 0.10);
+    }
+
+    .social svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* ——— Stèles ——— */
+    article {
+      margin: 5.5rem 0;
+      border: 1px solid var(--trait);
+      outline: 1px solid var(--trait);
+      outline-offset: 5px;
+      background: linear-gradient(160deg, var(--granit-clair), var(--pierre) 85%);
+      padding: 3.2rem clamp(1.4rem, 6vw, 3.4rem) 3.4rem;
+      position: relative;
+    }
+
+    article .numero {
+      display: block;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.5em;
+      text-indent: 0.5em;
+      color: var(--jade);
+      margin-bottom: 0.9rem;
+    }
+
+    article h2 {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 1.65rem;
+      letter-spacing: 0.04em;
+      color: var(--encre);
+      margin-bottom: 2.6rem;
+    }
+
+    article h2::after {
+      content: "";
+      display: block;
+      width: 3.5rem;
+      height: 1px;
+      background: var(--jade-sombre);
+      margin: 1.4rem auto 0;
+    }
+
+    .poeme p {
+      margin: 1.5rem 0;
+      color: var(--encre);
+      text-align: left;
+      hyphens: manual;
+    }
+
+    .poeme .sep {
+      text-align: center;
+      color: var(--jade);
+      font-style: normal;
+      letter-spacing: 0;
+      margin: 2rem 0;
+      font-size: 1rem;
+    }
+
+    /* ——— À propos ——— */
+    .apropos {
+      margin-top: 7rem;
+      text-align: center;
+      padding: 0 clamp(1rem, 5vw, 3rem);
+    }
+
+    .apropos h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.45em;
+      text-indent: 0.45em;
+      text-transform: uppercase;
+      color: var(--jade);
+      margin-bottom: 2.2rem;
+    }
+
+    .apropos p {
+      color: var(--encre-pale);
+      font-size: 1rem;
+      max-width: 32rem;
+      margin: 1.1rem auto;
+    }
+
+    .apropos a {
+      color: var(--jade);
+      text-decoration: none;
+      border-bottom: 1px solid var(--jade-sombre);
+    }
+
+    .apropos a:hover {
+      color: var(--encre);
+      border-bottom-color: var(--jade);
+    }
+
+    .apropos .sep-o {
+      color: var(--jade);
+      margin: 1.6rem 0;
+    }
+
+    /* ——— Sceau chiffré ——— */
+    .sceau-chiffre {
+      margin-top: 4.5rem;
+    }
+
+    .sceau-chiffre .cadre {
+      border: 1px solid var(--trait);
+      outline: 1px solid var(--trait);
+      outline-offset: 4px;
+      max-width: 30rem;
+      margin: 0 auto;
+      padding: 1.9rem 1.5rem;
+      background: linear-gradient(160deg, var(--granit-clair), var(--pierre) 85%);
+    }
+
+    .sceau-chiffre p {
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 0.32em;
+      text-indent: 0.32em;
+      color: var(--encre-pale);
+      font-size: 0.92rem;
+      line-height: 2.1;
+      text-align: center;
+      word-break: break-word;
+      margin: 0;
+    }
+
+    /* ——— Pied ——— */
+    footer {
+      text-align: center;
+      margin-top: 7rem;
+      color: var(--encre-pale);
+      font-size: 0.9rem;
+      letter-spacing: 0.35em;
+      text-indent: 0.35em;
+    }
+
+    footer .filet {
+      width: 3.5rem;
+      height: 1px;
+      background: var(--trait);
+      margin: 0 auto 2rem;
+    }
+
+    /* ——— Bascule de langue ——— */
+    .lang-switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      display: flex;
+      gap: 0.35rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+    }
+
+    .lang-switch button {
+      background: rgba(22, 22, 26, 0.7);
+      border: 1px solid var(--trait);
+      color: var(--encre-pale);
+      padding: 0.25rem 0.65rem;
+      cursor: pointer;
+      font: inherit;
+      letter-spacing: inherit;
+    }
+
+    .lang-switch button:hover {
+      color: var(--encre);
+      border-color: var(--jade-sombre);
+    }
+
+    [data-lang="fr"] .lang-switch button[data-l="fr"],
+    [data-lang="en"] .lang-switch button[data-l="en"] {
+      color: var(--granit);
+      background: var(--jade);
+      border-color: var(--jade);
+    }
+
+    /* visibilité par langue */
+    [data-lang="fr"] .en { display: none; }
+    [data-lang="en"] .fr { display: none; }
+
+    /* note de langue (EN) */
+    .langnote {
+      max-width: 32rem;
+      margin: 0 auto 5.5rem;
+      text-align: center;
+      color: var(--encre-pale);
+      font-size: 0.9rem;
+      font-style: italic;
+      padding: 0 1.5rem;
+    }
+
+    /* glose anglaise sous les poèmes */
+    .gloss {
+      margin-top: 2.4rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--trait);
+      color: var(--encre-pale);
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+
+    .gloss p {
+      margin: 1.2rem 0;
+      text-align: left;
+    }
+
+    .gloss .sep {
+      text-align: center;
+      font-style: normal;
+      color: var(--jade);
+      margin: 1.6rem 0;
+    }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      article { background: #fff; border-color: #999; outline-color: #999; }
+      .poeme p, article h2, header h1 { color: #111; }
+      .numero, .poeme .sep, header h1 .et { color: #3d6b58; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button data-l="fr" type="button">FR</button>
+    <button data-l="en" type="button">EN</button>
+  </div>
+  <main>
+    <header>
+      <h1>Le Jade<span class="et">et</span>le Granit</h1>
+      <div class="sceau" aria-hidden="true"></div>
+      <p class="intro fr">Le Jade et le Granit est une chasse au trésor : sept énigmes à résoudre pour remporter un véritable trésor — un lot de pièces d'une valeur d'au moins 200 euros. Le jeu est entièrement gratuit, et une seule personne l'emportera.</p>
+      <p class="intro en">Le Jade et le Granit is a treasure hunt: seven riddles to solve in order to win a real treasure — a set of coins worth at least €200. The game is entirely free, and only one person will claim it.</p>
+      <div class="social">
+        <a class="discord" href="https://discord.gg/MJvZ2rHR3p" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+          <span>Discord</span>
+        </a>
+        <a class="bmc" href="https://buymeacoffee.com/lejadeetlegranit" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          <span class="fr">Offrir un café</span><span class="en">Buy me a coffee</span>
+        </a>
+      </div>
+    </header>
+
+    <p class="langnote en">The riddles must be solved in French. The English translation below each one is there only to help you understand it.</p>
+
+    <article id="i">
+      <span class="numero">I</span>
+      <h2>Les Frères Kip</h2>
+      <div class="poeme">
+        <p>Deux frères, tels les enfants de Léda, se partagent déjà le Départ. L'aîné a pris le filet de lumière qui se reflète sur les bancs de la Vie. Le cadet n'a gardé que les ténèbres au creux de lui.</p>
+        <p class="sep">o</p>
+        <p>Du phare, descends aux entrailles du cadet&nbsp;; là, dans la craie, naît le premier pas.</p>
+      </div>
+      <div class="gloss en">
+        <p>Two brothers, like the children of Leda, already share the Departure. The elder took the net of light that reflects on the sandbanks of the Vie. The younger kept only the darkness within him.</p>
+        <p class="sep">o</p>
+        <p>From the lighthouse, descend into the entrails of the younger; there, in the chalk, the first step is born.</p>
+      </div>
+    </article>
+
+    <article id="ii">
+      <span class="numero">II</span>
+      <h2>La Cathédrale</h2>
+      <div class="poeme">
+        <p>C'est écrit — on a forgé ce dont le Géant avait besoin. Retiens celle à ne jamais rien entendre. Elle excelle à résonner.</p>
+        <p class="sep">o</p>
+        <p>Prends le levant.</p>
+        <p>Dans la roche, les cinq pièces sont dressées. Le Géant ne les a pas reprises.</p>
+      </div>
+      <div class="gloss en">
+        <p>It is written — they forged what the Giant needed. Keep the one who never hears a thing. She excels at resounding.</p>
+        <p class="sep">o</p>
+        <p>Take the east.</p>
+        <p>In the rock, the five pieces stand upright. The Giant never took them back.</p>
+      </div>
+    </article>
+
+    <article id="iii">
+      <span class="numero">III</span>
+      <h2>Le Château des Carpathes</h2>
+      <div class="poeme">
+        <p>Gabriel sait où aller — il l'a toujours su. Lui seul lit le ciel&nbsp;; qui l'écoute obéit. Il bat midi.</p>
+        <p>Au-delà, celle-là aussi. Là-bas, le même geste se répète — plus vieux, plus faible, mais fidèle.</p>
+        <p class="sep">o</p>
+        <p>Derrière ces murs, la porte et le tumulus — c'est là que se lit la voie.</p>
+      </div>
+      <div class="gloss en">
+        <p>Gabriel knows where to go — he always has. He alone reads the sky; whoever listens obeys. He strikes noon.</p>
+        <p>Beyond, she too. Over there, the same gesture repeats — older, weaker, but faithful.</p>
+        <p class="sep">o</p>
+        <p>Behind these walls, the gate and the tumulus — there the way is read.</p>
+      </div>
+    </article>
+
+    <article id="iv">
+      <span class="numero">IV</span>
+      <h2>En route</h2>
+      <div class="poeme">
+        <p>L'onde file dessous&nbsp;; le pied se tient dessus. Le silence ici est vieux&nbsp;: ne le trouble point.<br>
+        L'on rumine entre les rivières&nbsp;; le Pieux en tire ce qui coule et fond sous le doigt.</p>
+        <p class="sep">o</p>
+        <p>Vois&nbsp;: tel son couvre-chef, deux pointes se dressent sur une même droite. Entre elles, celui qui résiste s'est figé, debout — il ne rompt point.<br>
+        Rejoins son chemin.</p>
+      </div>
+      <div class="gloss en">
+        <p>The water flows below; the foot rests above. The silence here is old: do not disturb it.<br>
+        One ruminates between the rivers; the Pious one draws from it what runs and melts under the finger.</p>
+        <p class="sep">o</p>
+        <p>See: like his headdress, two points rise on a single line. Between them, the one who resists has frozen, standing — he does not break.<br>
+        Rejoin his path.</p>
+      </div>
+    </article>
+
+    <article id="v">
+      <span class="numero">V</span>
+      <h2>Sylvie</h2>
+      <div class="poeme">
+        <p>Georges a déjà tout dit, sauf la plus facile. Il a fait mille fois plus gros qu'ici. Pas de zéphyr sur ce kilt de tweed.</p>
+        <p class="sep">o</p>
+        <p>Écoute la vieille fable&nbsp;: ce qui a la couleur de la blessure chevauche ce qui a la couleur des ciseaux.</p>
+        <p>Ce qui s'efface se lit aussi.</p>
+      </div>
+      <div class="gloss en">
+        <p>Georges has already said it all, save the easiest. He made one a thousand times larger than this. No zephyr on this tweed kilt.</p>
+        <p class="sep">o</p>
+        <p>Listen to the old tale: what has the color of the wound rides over what has the color of the scissors.</p>
+        <p>What is erased can also be read.</p>
+      </div>
+    </article>
+
+    <article id="vi">
+      <span class="numero">VI</span>
+      <h2>Aurélia</h2>
+      <div class="poeme">
+        <p>Ni ce qui verdoie&nbsp;; ni ce qui dort au fond du Rhin, ni ce qui vient de l'autre rive. Ni l'air où rien ne vit, ni le dur qui brille&nbsp;; ni ce qu'au hameau du nord on découvre encore.</p>
+        <p>Rien de cela n'y luit.</p>
+        <p class="sep">o</p>
+        <p>Quelque gravure fixe ce regard au pied, déjà perdu. Qui a vu ne revient point.</p>
+      </div>
+      <div class="gloss en">
+        <p>Neither what turns green; nor what sleeps at the bottom of the Rhine, nor what comes from the other bank. Neither the air where nothing lives, nor the hard thing that shines; nor what, in the hamlet of the north, is still being found.</p>
+        <p>None of that gleams here.</p>
+        <p class="sep">o</p>
+        <p>Some engraving fixes this gaze at its foot, already lost. Whoever has seen does not return.</p>
+      </div>
+    </article>
+
+    <article id="vii">
+      <span class="numero">VII</span>
+      <h2>Cycle</h2>
+      <div class="poeme">
+        <p>Six chants taisent six cités&nbsp;; trois encres les ont signés. Ce qu'une même encre écrivit deux fois, relie-le d'un trait.</p>
+        <p>Un prophète est venu ici, seul. Il n'annonça rien — ce qu'il vit lui suffit.</p>
+        <p class="sep">o</p>
+        <p>Un marcheur s'est assis là pour ne plus revenir. Pèse les six, lettre à lettre&nbsp;; compte à rebours les pierres qu'il laissa.</p>
+      </div>
+      <div class="gloss en">
+        <p>Six songs silence six cities; three inks have signed them. What one same ink wrote twice, join it with a line.</p>
+        <p>A prophet came here, alone. He announced nothing — what he saw was enough for him.</p>
+        <p class="sep">o</p>
+        <p>A walker sat down here, never to return. Weigh the six, letter by letter; count backward the stones he left.</p>
+      </div>
+    </article>
+
+    <section class="sceau-chiffre">
+      <div class="cadre">
+        <p>BRM NPIWLW YC KQSNIT : KEAMCLEH QS DLRVE, DWGAEAI PWJ WWEW, FK IM UVVXAH. MWEAYVIC, TM RA LSXL WF VVHOEESQV : LD VWO GMPN.</p>
+      </div>
+    </section>
+
+    <section class="apropos">
+      <h2 class="fr">Participer</h2>
+      <h2 class="en">How to play</h2>
+      <p class="fr">Résolvez les sept énigmes, déchiffrez le cryptogramme ci-dessus, puis envoyez le texte obtenu à <a href="mailto:lejadeetlegranit@youngteam.net">lejadeetlegranit@youngteam.net</a>, accompagné de votre cheminement complet&nbsp;: chaque étape et chaque solution. Une réponse sans le raisonnement détaillé ne sera pas retenue.</p>
+      <p class="en">Solve the seven riddles, decipher the cryptogram above, then send the resulting text to <a href="mailto:lejadeetlegranit@youngteam.net">lejadeetlegranit@youngteam.net</a>, along with your full reasoning: every step and every solution. An answer without detailed reasoning will not be accepted.</p>
+      <p class="fr">Pour échanger avec les autres chercheurs, rejoignez le <a href="https://discord.gg/MJvZ2rHR3p">Discord</a>.</p>
+      <p class="en">To chat with other seekers, join the <a href="https://discord.gg/MJvZ2rHR3p">Discord</a>.</p>
+      <p class="fr">Ce jeu vous plaît&nbsp;? Vous pouvez m'offrir un <a href="https://buymeacoffee.com/lejadeetlegranit">café</a>.</p>
+      <p class="en">Enjoying the game? You can buy me a <a href="https://buymeacoffee.com/lejadeetlegranit">coffee</a>.</p>
+    </section>
+
+    <footer>
+      <div class="filet"></div>
+      MMXXVI
+    </footer>
+  </main>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      document.querySelectorAll('.lang-switch button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var l = b.getAttribute('data-l');
+          root.setAttribute('data-lang', l);
+          root.setAttribute('lang', l);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
