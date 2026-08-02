@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Jade et le Granit</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --granit: #16161a;
+      --granit-clair: #1e1e24;
+      --pierre: #26262e;
+      --encre: #d8d3c8;
+      --encre-pale: #a8a396;
+      --jade: #6fae94;
+      --jade-sombre: #3d6b58;
+      --trait: #3a3a44;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--granit);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(111, 174, 148, 0.05), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(111, 174, 148, 0.03), transparent);
+      color: var(--encre);
+      font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1.5rem;
+    }
+
+    .card {
+      text-align: center;
+      border: 1px solid var(--trait);
+      outline: 1px solid var(--trait);
+      outline-offset: 6px;
+      background: linear-gradient(160deg, var(--granit-clair), var(--pierre) 85%);
+      padding: 4rem clamp(2rem, 8vw, 5rem);
+      max-width: 34rem;
+    }
+
+    .sceau {
+      width: 3rem;
+      height: 3rem;
+      margin: 0 auto 2.5rem;
+      border: 1px solid var(--jade-sombre);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sceau::before {
+      content: "";
+      width: 0.85rem;
+      height: 0.85rem;
+      border: 1px solid var(--jade);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(2.4rem, 9vw, 4rem);
+      letter-spacing: 0.06em;
+      color: var(--encre);
+      line-height: 1.2;
+    }
+
+    .sub {
+      margin-top: 1.8rem;
+      color: var(--encre-pale);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    .filet {
+      width: 3.5rem;
+      height: 1px;
+      background: var(--jade-sombre);
+      margin: 2.4rem auto 0;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 2.2rem;
+      color: var(--jade);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--jade-sombre);
+    }
+
+    .back:hover {
+      color: var(--encre);
+      border-bottom-color: var(--jade);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="sceau" aria-hidden="true"></div>
+    <h1>Ah bah non.</h1>
+    <p class="sub">Bien essayé.</p>
+    <div class="filet"></div>
+    <a class="back" href="/">Retour</a>
+  </div>
+</body>
+</html>
