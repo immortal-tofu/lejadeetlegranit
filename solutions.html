@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Le Jade et le Granit</title>
+  <title>Le Jade et le Granit · les solutions</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta name="robots" content="noindex">
+  <meta name="description" content="Le Jade et le Granit : les solutions complètes des sept énigmes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital@0;1&family=Courier+Prime:wght@400&display=swap" rel="stylesheet">
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2f314ad38d44984847d395777029672"}'></script><!-- End Cloudflare Web Analytics -->
   <style>
     :root {
@@ -17,101 +17,482 @@
       --pierre: #26262e;
       --encre: #d8d3c8;
       --encre-pale: #a8a396;
+      --encre-faible: #7d7a70;
       --jade: #6fae94;
       --jade-sombre: #3d6b58;
+      --or: #c8a24a;
       --trait: #3a3a44;
+      --l-verte: #2d6a4f;
+      --l-bleue: #457b9d;
+      --l-jaune: #b8860b;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: var(--granit);
       background-image:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(111, 174, 148, 0.05), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(111, 174, 148, 0.03), transparent);
+        radial-gradient(ellipse 80% 45% at 50% -8%, rgba(111,174,148,.05), transparent),
+        radial-gradient(ellipse 55% 40% at 88% 108%, rgba(200,162,74,.035), transparent);
       color: var(--encre);
       font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px; line-height: 1.68;
       -webkit-font-smoothing: antialiased;
-      padding: 2rem 1.5rem;
     }
+    .page { max-width: 47rem; margin: 0 auto; padding: 4.5rem 1.5rem 7rem; }
 
-    .card {
-      text-align: center;
-      border: 1px solid var(--trait);
-      outline: 1px solid var(--trait);
-      outline-offset: 6px;
-      background: linear-gradient(160deg, var(--granit-clair), var(--pierre) 85%);
-      padding: 4rem clamp(2rem, 8vw, 5rem);
-      max-width: 34rem;
+    a { color: var(--jade); text-decoration: none; border-bottom: 1px solid var(--jade-sombre); }
+    a:hover { color: var(--encre); border-bottom-color: var(--jade); }
+    a:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; }
+
+    .kicker {
+      font-family: 'Cormorant Garamond', serif; font-size: .74rem;
+      letter-spacing: .42em; text-indent: .42em; text-transform: uppercase;
+      color: var(--jade); margin-bottom: 1.3rem;
     }
-
-    .sceau {
-      width: 3rem;
-      height: 3rem;
-      margin: 0 auto 2.5rem;
-      border: 1px solid var(--jade-sombre);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sceau::before {
-      content: "";
-      width: 0.85rem;
-      height: 0.85rem;
-      border: 1px solid var(--jade);
-    }
-
     h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: clamp(2.4rem, 9vw, 4rem);
-      letter-spacing: 0.06em;
-      color: var(--encre);
-      line-height: 1.2;
+      font-family: 'Cormorant Garamond', serif; font-weight: 500;
+      font-size: clamp(2.1rem, 6vw, 3.1rem); line-height: 1.18;
+      letter-spacing: .06em; text-transform: uppercase; text-wrap: balance;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 500;
+      font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.24;
+      margin: 4rem 0 .4rem; text-wrap: balance;
+      scroll-margin-top: 2rem;
+    }
+    h3 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic;
+      font-size: 1.3rem; margin: 2.6rem 0 .8rem;
+    }
+    p { margin-bottom: .9rem; }
+    strong { color: var(--encre); font-weight: 600; }
+    em { font-style: italic; }
+    .sol { color: var(--or); font-weight: 600; }
+    .lead { color: var(--encre-pale); font-size: 1.05rem; }
+    .quiet { color: var(--encre-faible); font-size: .9rem; }
+
+    .filet { width: 3.5rem; height: 1px; background: var(--jade-sombre); margin: 2.2rem 0; }
+
+    .avert {
+      border: 1px solid var(--trait); outline: 1px solid var(--trait); outline-offset: 5px;
+      background: linear-gradient(160deg, var(--granit-clair), var(--pierre) 88%);
+      padding: 1.6rem 1.7rem; margin: 2.8rem 0 1rem;
     }
 
-    .sub {
-      margin-top: 1.8rem;
-      color: var(--encre-pale);
-      font-style: italic;
-      font-size: 1.1rem;
+    .stele {
+      border: 1px solid var(--trait); outline: 1px solid var(--trait); outline-offset: 5px;
+      background: linear-gradient(160deg, var(--granit-clair), var(--pierre) 88%);
+      padding: 1.6rem 1.7rem; margin: 1.6rem 0;
+    }
+    .stele .sep { text-align: center; color: var(--jade); margin: 1.1rem 0; }
+    .stele p:last-child { margin-bottom: 0; }
+
+    dl.fiche { margin: 1.3rem 0; }
+    dl.fiche div {
+      display: grid; grid-template-columns: 7rem 1fr; gap: .9rem;
+      padding: .6rem 0; border-top: 1px solid var(--trait);
+    }
+    dl.fiche div:last-child { border-bottom: 1px solid var(--trait); }
+    dl.fiche dt {
+      font-family: 'Cormorant Garamond', serif; font-size: .7rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--encre-faible); padding-top: .35em;
     }
 
-    .filet {
-      width: 3.5rem;
-      height: 1px;
-      background: var(--jade-sombre);
-      margin: 2.4rem auto 0;
+    ul { list-style: none; display: grid; gap: .55rem; margin: 1rem 0; }
+    ul li { padding-left: 1.4rem; position: relative; }
+    ul li::before {
+      content: ""; position: absolute; left: 0; top: .62em;
+      width: .5rem; height: 1px; background: var(--jade-sombre);
     }
 
-    .back {
-      display: inline-block;
-      margin-top: 2.2rem;
-      color: var(--jade);
-      text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-      border-bottom: 1px solid var(--jade-sombre);
+    .toc { margin: 2.4rem 0 0; }
+    .toc ul { gap: .3rem; }
+    .toc li::before { top: .68em; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .94rem; margin: 1.2rem 0; }
+    th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--trait); vertical-align: top; }
+    th {
+      font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: .7rem;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--encre-faible);
+    }
+    td.num { text-align: right; font-family: 'Courier Prime', monospace; font-variant-numeric: tabular-nums; }
+    .lettre { font-family: 'Courier Prime', monospace; color: var(--or); font-weight: 700; }
+    .scroll { overflow-x: auto; }
+
+    .chiffre {
+      font-family: 'Courier Prime', 'Courier New', monospace; font-size: .88rem;
+      letter-spacing: .2em; color: var(--encre-pale); line-height: 2; word-break: break-word;
     }
 
-    .back:hover {
-      color: var(--encre);
-      border-bottom-color: var(--jade);
+    figure { margin: 2rem 0; }
+    img { display: block; max-width: 100%; height: auto; margin: 0 auto; border: 1px solid var(--trait); }
+    figcaption { margin-top: .9rem; color: var(--encre-faible); font-size: .85rem; text-align: center; }
+
+    footer {
+      margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--trait);
+      color: var(--encre-faible); font-size: .85rem;
+    }
+    footer p { margin-bottom: .6rem; }
+
+    @media (max-width: 620px) {
+      dl.fiche div { grid-template-columns: 1fr; gap: .1rem; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="sceau" aria-hidden="true"></div>
-    <h1>Ah bah non.</h1>
-    <p class="sub">Bien essayé.</p>
-    <div class="filet"></div>
-    <a class="back" href="/">Retour</a>
+<div class="page">
+
+  <p class="kicker">Le Jade et le Granit</p>
+  <h1>Les solutions</h1>
+
+  <div class="avert">
+    <p><strong>La chasse est terminée.</strong> Tout est dévoilé ci-dessous, du premier vers au dernier mot du sceau. Si vous cherchez encore pour le plaisir, fermez cette page.</p>
+    <p class="quiet" style="margin-bottom:0">This page is in French only. The hunt was built to be solved in French, and so is its solution.</p>
   </div>
+
+  <p class="lead">Sept chants. Chacun se lit trois fois, et chaque lecture donne autre chose : le titre apparie, la première strophe cache une cité, la seconde donne un pas sur le terrain. Voici les trois lectures, dans l'ordre.</p>
+
+  <nav class="toc">
+    <ul>
+      <li><a href="#forme">La forme</a></li>
+      <li><a href="#titres">Les titres, et ce qu'ils apparient</a></li>
+      <li><a href="#cites">Les six cités</a></li>
+      <li><a href="#lipogramme">Le lipogramme</a></li>
+      <li><a href="#droites">Les trois droites</a></li>
+      <li><a href="#pas">Les six pas, et le parcours</a></li>
+      <li><a href="#compte">Le compte, et la stèle</a></li>
+      <li><a href="#sceau">Le sceau</a></li>
+      <li><a href="#tresor">Le trésor</a></li>
+      <li><a href="#indice">L'indice supplémentaire</a></li>
+      <li><a href="#segalen">Les clins d'œil à Segalen</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="forme">La forme</h2>
+  <p>Six poèmes numérotés, une finale. Les poèmes sont en prose brève, à la manière des <em>Stèles</em> de Victor Segalen : deux blocs séparés par un petit « o », des impératifs qui ordonnent, des mots à majuscule qui pèsent, une chute d'une ligne. Le « o » n'est pas un ornement : c'est la charnière entre les deux lectures.</p>
+  <p>On les appelle ici des <strong>chants</strong>, et c'est le mot du jeu lui-même, pris à la finale, « six chants taisent six cités ». Segalen, lui, n'a jamais écrit de chants : il écrivait des stèles.</p>
+  <p>La finale, <em>Cycle</em>, dit comment assembler le reste. Elle cache une cité elle aussi, la septième, celle où l'on se rend, mais par un tout autre mécanisme que les six premières.</p>
+
+  <h2 id="titres">Les titres, et ce qu'ils apparient</h2>
+  <p>Chaque titre est un livre, choisi parmi les moins lus de son auteur, et respectant le lipogramme de son poème. Aucun ne désigne un lieu : leur fonction est d'<strong>apparier</strong>. Trois encres, trois paires. Mais chacun, discrètement, évoque aussi le poème qu'il coiffe.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>L'encre</th><th>Chant</th><th>Le titre</th><th>Ce qu'il évoque, en plus</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2" style="color:var(--l-verte)">Verne</td><td>I</td><td><em>Les Frères Kip</em></td><td>des frères, tout simplement : le poème en met deux</td></tr>
+        <tr><td>III</td><td><em>Le Château des Carpathes</em></td><td>une muraille, une cité fortifiée</td></tr>
+        <tr><td rowspan="2" style="color:var(--l-bleue)">Huysmans</td><td>II</td><td><em>La Cathédrale</em></td><td>des cloches, et la cité du poème les coule</td></tr>
+        <tr><td>IV</td><td><em>En route</em></td><td>une route : celle qui court entre deux clochers</td></tr>
+        <tr><td rowspan="2" style="color:var(--l-jaune)">Nerval</td><td>V</td><td><em>Sylvie</em></td><td>Perec : l'héroïne des <em>Choses</em> s'appelle Sylvie</td></tr>
+        <tr><td>VI</td><td><em>Aurélia</em></td><td>l'or, par où s'ouvre le rébus du poème</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="quiet">Le septième titre, <em>Cycle</em>, est le seul qui ne soit pas un livre : c'est la consigne.</p>
+
+  <h2 id="cites">Les six cités</h2>
+  <p>Sous chaque première strophe dort une ville. Elle ne sert jamais à marcher : c'est un point de visée.</p>
+
+  <h3>I · Les Frères Kip</h3>
+  <div class="stele"><p>Deux frères, tels les enfants de Léda, se partagent déjà le Départ. L'aîné a pris le filet de lumière qui se reflète sur les bancs de la Vie. Le cadet n'a gardé que les ténèbres au creux de lui.</p></div>
+  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Saint-Gilles-Croix-de-Vie</dd></div></dl>
+  <ul>
+    <li>Les enfants de Léda sont des jumeaux : deux villes <strong>jumelées</strong>, depuis 2019.</li>
+    <li>L'aîné est celui de la lumière : le filet du pêcheur, et « les bancs de la <strong>Vie</strong> », qui sont les bancs de sable de l'estuaire de la rivière Vie.</li>
+    <li>Le cadet garde les ténèbres : Montrichard, et sous lui Bourré, ses caves creusées dans le tuffeau.</li>
+  </ul>
+
+  <h3>II · La Cathédrale</h3>
+  <div class="stele"><p>C'est écrit — on a forgé ce dont le Géant avait besoin. Retiens celle à ne jamais rien entendre. Elle excelle à résonner.</p></div>
+  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Villedieu-les-Poêles</dd></div></dl>
+  <ul>
+    <li>« C'est écrit » désigne un texte : Rabelais. Le Géant est <strong>Pantagruel</strong>, et non son père.</li>
+    <li>Pour son poêlon à cuire sa bouillie « furent occupés tous les poêliers de Saumur en Anjou, <strong>de Villedieu en Normandie</strong>, de Bramont en Lorraine ».</li>
+    <li>« Celle à ne jamais rien entendre » : les <strong>Sourdins</strong>, sourds à force de battre le cuivre.</li>
+    <li>« Elle excelle à résonner » : la fonderie de cloches, qui a coulé celles de Notre-Dame de Paris. Cette cloche revient au chant suivant.</li>
+  </ul>
+
+  <h3>III · Le Château des Carpathes</h3>
+  <div class="stele">
+    <p>Gabriel sait où aller — il l'a toujours su. Lui seul lit le ciel&nbsp;; qui l'écoute obéit. Il bat midi.</p>
+    <p>Au-delà, celle-là aussi. Là-bas, le même geste se répète — plus vieux, plus faible, mais fidèle.</p>
+  </div>
+  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Carcassonne</dd></div></dl>
+  <ul>
+    <li><strong>Gabriel</strong> est une cloche, celle qu'on vient de couler, suspendue à Notre-Dame de Paris. Elle lit le ciel, on lui obéit.</li>
+    <li>« Il bat <strong>midi</strong> » : l'heure, et la direction. À midi l'astre est sur le <strong>méridien</strong>. On descend la ligne, plein sud.</li>
+    <li>« Celle-là aussi », plus vieille, plus faible, mais fidèle : une autre dame qui refait le même geste, sur la longitude de Paris. <strong>Dame Carcas sonne.</strong></li>
+    <li>C'est la seule vraie langue des oiseaux du jeu : le nom dit ce que la dame fait.</li>
+  </ul>
+
+  <h3>IV · En route</h3>
+  <div class="stele">
+    <p>L'onde file dessous&nbsp;; le pied se tient dessus. Le silence ici est vieux&nbsp;: ne le trouble point.</p>
+    <p>L'on rumine entre les rivières&nbsp;; le Pieux en tire ce qui coule et fond sous le doigt.</p>
+  </div>
+  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Pont-l'Évêque</dd></div></dl>
+  <ul>
+    <li>L'onde dessous, le pied dessus : un <strong>pont</strong>.</li>
+    <li>« On rumine entre les rivières » : les vaches, et l'ancien nom du lieu, <em>Pont-les-Vaches</em>.</li>
+    <li>Le <strong>Pieux</strong> est l'évêque. Ce qu'il en tire, « qui coule et fond sous le doigt », est le fromage carré qui porte son nom.</li>
+  </ul>
+
+  <h3>V · Sylvie</h3>
+  <div class="stele"><p>Georges a déjà tout dit, sauf la plus facile. Il a fait mille fois plus gros qu'ici. Pas de zéphyr sur ce kilt de tweed.</p></div>
+  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Ounans, au Val d'Amour</dd></div></dl>
+  <p>Celle-ci ne se trouve pas dans son poème : elle se trouve dans l'absence des six. Voir la section suivante.</p>
+
+  <h3>VI · Aurélia</h3>
+  <div class="stele">
+    <p>Ni ce qui verdoie&nbsp;; ni ce qui dort au fond du Rhin, ni ce qui vient de l'autre rive. Ni l'air où rien ne vit, ni le dur qui brille&nbsp;; ni ce qu'au hameau du nord on découvre encore.</p>
+    <p>Rien de cela n'y luit.</p>
+  </div>
+  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Beaugency</dd></div></dl>
+  <p>Six images, six symboles chimiques, dans l'ordre du texte.</p>
+  <div class="scroll">
+    <table>
+      <tbody>
+        <tr><td>ce qui verdoie</td><td>l'émeraude, le béryl</td><td class="lettre">Be</td></tr>
+        <tr><td>ce qui dort au fond du Rhin</td><td>l'or du Rhin</td><td class="lettre">Au</td></tr>
+        <tr><td>ce qui vient de l'autre rive</td><td>l'Allemagne</td><td class="lettre">Ge</td></tr>
+        <tr><td>l'air où rien ne vit</td><td>l'azote, <em>a-zoê</em></td><td class="lettre">N</td></tr>
+        <tr><td>le dur qui brille</td><td>le diamant, carbone</td><td class="lettre">C</td></tr>
+        <tr><td>au hameau du nord</td><td>Ytterby, l'yttrium</td><td class="lettre">Y</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>« Rien de cela n'y luit » : la strophe énumère six choses pour dire qu'aucune n'est là. Il ne reste que leurs initiales.</p>
+
+  <h2 id="lipogramme">Le lipogramme</h2>
+  <p>La première strophe du chant V ne cache pas une ville : elle donne une consigne qui vaut pour les six poèmes.</p>
+  <ul>
+    <li><strong>Georges Perec</strong> a « tout dit » et a fait « mille fois plus gros » : un roman entier sans la lettre la plus facile. Le mot n'est jamais prononcé, mais la consigne est là, chercher ce qui <em>manque</em>.</li>
+    <li>« Pas de zéphyr sur ce kilt de tweed » : trois mots choisis pour <strong>apporter</strong> <span class="lettre">Z Y H K W</span>. Ces cinq lettres sont trop rares pour qu'une absence signifie quelque chose : on les ignore.</li>
+    <li><strong>L'unité est le poème entier</strong>, jamais une phrase. Une phrase courte manque toujours de lettres par hasard.</li>
+    <li>Le chant V le prouve de lui-même : en apportant ces cinq lettres, il ne lui manque plus que le <span class="lettre">N</span>, et rien d'autre de tout l'alphabet.</li>
+  </ul>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Chant</th><th>Le titre</th><th>Lettre absente</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td><em>Les Frères Kip</em></td><td class="lettre">O</td></tr>
+        <tr><td>II</td><td><em>La Cathédrale</em></td><td class="lettre">U</td></tr>
+        <tr><td>III</td><td><em>Le Château des Carpathes</em></td><td class="lettre">N</td></tr>
+        <tr><td>IV</td><td><em>En route</em></td><td class="lettre">A</td></tr>
+        <tr><td>V</td><td><em>Sylvie</em></td><td class="lettre">N</td></tr>
+        <tr><td>VI</td><td><em>Aurélia</em></td><td class="lettre">S</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="stele">
+    <p style="font-family:'Courier Prime',monospace;letter-spacing:.36em;color:var(--or);font-size:1.1rem">O U N A N S</p>
+    <p class="quiet" style="margin-top:.8rem;margin-bottom:0">La cité du chant V, sortie de l'absence des six. L'acrostiche retombe sur un membre du groupe : le jeu se signe lui-même.</p>
+  </div>
+
+  <h2 id="droites">Les trois droites</h2>
+  <p>Les six cités sont là, et rien ne dit encore quoi en faire. C'est la finale qui donne la consigne, en une phrase.</p>
+  <div class="stele"><p>Six chants taisent six cités&nbsp;; trois encres les ont signés. Ce qu'une même encre écrivit deux fois, relie-le d'un trait.</p></div>
+  <p>Les deux poèmes d'un même auteur vont ensemble, et l'on relie leurs cités d'une droite, prolongée bien au-delà des deux villes.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Encre</th><th>La droite</th><th>Écart au lieu</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--l-verte)">Verne</td><td>Saint-Gilles-Croix-de-Vie ↔ Carcassonne</td><td class="num">28 km, à l'ouest</td></tr>
+        <tr><td style="color:var(--l-bleue)">Huysmans</td><td>Villedieu-les-Poêles ↔ Pont-l'Évêque</td><td class="num">38 km, au sud</td></tr>
+        <tr><td style="color:var(--l-jaune)">Nerval</td><td>Ounans ↔ Beaugency</td><td class="num">24 km, au nord</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="quiet">Distances perpendiculaires du lieu final à chaque droite, mesurées en Lambert-93. Aucune des trois ne touche le lieu : c'est précisément ce qui le désigne.</p>
+
+  <figure>
+    <img src="assets/triangulation-lambert93.svg" alt="Carte de France en projection Lambert-93 : les six cités appariées par la couleur de leur pastille, reliées par trois droites qui encerclent Huelgoat.">
+    <figcaption>Les trois droites, tracées à la règle sur une projection Lambert-93 et prolongées d'un bord à l'autre. Huelgoat est en rouge.<br>Fond de carte : Eric Gaba (Sting) pour Wikipédia, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</figcaption>
+  </figure>
+
+  <p>Le centre du triangle formé par les trois droites tombe à <strong>6,9 km</strong> de Huelgoat. Sur une carte de France, c'est un doigt posé dessus. Mais un centre de triangle désigne un bout de Bretagne intérieure, pas un rocher.</p>
+  <p>C'est la finale qui <strong>nomme</strong>, par un tout autre chemin.</p>
+  <div class="stele"><p>Un prophète est venu ici, seul. Il n'annonça rien — ce qu'il vit lui suffit.</p></div>
+  <p>Prophète se dit <em>nabi</em>, et les Nabis étaient des peintres. Le premier d'entre eux, <strong>Paul Sérusier</strong>, a peint dans ce chaos de granit un tableau qu'il a appelé <em>Solitude</em>. Chercher où il l'a peint donne <span class="sol">Huelgoat</span> par son nom, sans tracer une seule droite. Le prophète n'annonce rien, il voit : c'est un peintre, et le mot n'est jamais écrit.</p>
+  <p class="quiet">Un faux ami au passage : le barycentre des <strong>six villes</strong>, lui, tombe 390 km plus loin, vers la Loire. C'est le centre du triangle qui vise, jamais celui des villes.</p>
+
+  <h2 id="pas">Les six pas, et le parcours</h2>
+  <p>Après le « o », chaque poème donne un pas sur le terrain. Mis bout à bout, dans l'ordre des chants, ils font le parcours dans la forêt de Huelgoat.</p>
+
+  <h3>I · « Du phare, descends aux entrailles du cadet ; là, dans la craie, naît le premier pas. »</h3>
+  <dl class="fiche"><div><dt>Le pas</dt><dd class="sol">Le Champignon</dd></div></dl>
+  <ul>
+    <li>« Du <strong>phare</strong> » : la seconde strophe valide la première au passage. Saint-Gilles-Croix-de-Vie a son phare.</li>
+    <li>« Dans la craie » : les caves de tuffeau de <strong>Bourré</strong>, où l'on cultive à cinquante mètres sous terre ce qui n'est jamais nommé.</li>
+    <li>« Naît le premier <strong>pas</strong> » dit le départ du parcours, et cache un jeu de mots : un pas, à Bourré, fait un <strong>pas de bourrée</strong>.</li>
+    <li>Sur place, ce départ est un bloc de granit de deux cents tonnes qui a la forme de ce qu'on cultive dans la craie.</li>
+  </ul>
+
+  <h3>II · « Prends le levant. Dans la roche, les cinq pièces sont dressées. »</h3>
+  <dl class="fiche"><div><dt>Le pas</dt><dd class="sol">Le Ménage de la Vierge</dd></div></dl>
+  <ul>
+    <li>« Prends le levant » : la seule direction donnée en clair de tout le jeu. Depuis le départ, plein est.</li>
+    <li>« Les cinq pièces dressées dans la roche » : des rochers en forme d'ustensiles de cuisine. Le Géant ne les a pas reprises.</li>
+  </ul>
+
+  <h3>III · « Derrière ces murs, la porte et le tumulus — c'est là que se lit la voie. »</h3>
+  <dl class="fiche"><div><dt>Le pas</dt><dd class="sol">Le Camp d'Artus</dd></div></dl>
+  <ul>
+    <li>Un oppidum gaulois à double enceinte, comme la cité du premier cycle.</li>
+    <li>« La porte et le tumulus » : sur place, l'alignement réel du tumulus, de l'entrée sud et de la voie antique. Cet alignement se prolonge, et il sert au chant suivant.</li>
+  </ul>
+
+  <h3>IV · « Tel son couvre-chef, deux pointes se dressent sur une même droite… Rejoins son chemin. »</h3>
+  <dl class="fiche"><div><dt>Le pas</dt><dd class="sol">La rue du Docteur Jacq</dd></div></dl>
+  <ul>
+    <li>Une <strong>droite</strong> traverse réellement le site : le tumulus, l'église et la chapelle sont alignés.</li>
+    <li>Le couvre-chef de l'évêque est la <strong>mitre</strong>, et elle a deux cornes : ce sont les deux édifices religieux posés sur cette même droite.</li>
+    <li>« Celui qui résiste s'est figé, debout » : le docteur Fernand Jacq, résistant fusillé en 1941. Entre les deux édifices court la rue qui porte son nom.</li>
+    <li>« Rejoins son chemin » : on prend cette rue, et c'est elle qui emmène vers le pont du chant suivant.</li>
+  </ul>
+
+  <h3>V · « Ce qui a la couleur de la blessure chevauche ce qui a la couleur des ciseaux. »</h3>
+  <dl class="fiche"><div><dt>Le pas</dt><dd class="sol">Le Vieux Pont Rouge</dd></div></dl>
+  <ul>
+    <li>La vieille fable ne s'écrit pas, elle se chante : une chanson comtoise, la <em>Légende du Val d'Amour</em>.</li>
+    <li>Au neuvième couplet : « Si j'avais des ciseaux d'argent, je m'ouvrirais une de mes veines, et je ferais couler mon sang. »</li>
+    <li>La couleur de la blessure <strong>chevauche</strong> la couleur des ciseaux : un pont rouge sur une rivière d'argent.</li>
+    <li>« Ce qui s'efface se lit aussi » renvoie à la première strophe. Le poème referme sa propre consigne.</li>
+  </ul>
+
+  <h3>VI · « Quelque gravure fixe ce regard au pied, déjà perdu. »</h3>
+  <dl class="fiche"><div><dt>Le pas</dt><dd class="sol">La Stèle, au belvédère</dd></div></dl>
+  <ul>
+    <li>Une <strong>gravure</strong> sur la pierre, au bout du parcours : une stèle, et un nom dessus.</li>
+    <li>« Ce regard au pied, déjà perdu » : l'homme fut retrouvé mort là, assis au-dessus du Gouffre, les yeux ouverts, une entaille à la cheville.</li>
+    <li>« Qui a vu ne revient point » : c'est la dernière étape, et c'est aussi la sienne.</li>
+  </ul>
+
+  <p>Le parcours, dans l'ordre, avec les numéros du plan officiel des circuits de Huelgoat : le <strong>Champignon</strong> (1), le <strong>Ménage de la Vierge</strong> (5) au levant, le <strong>Camp d'Artus</strong> (9) au nord, la <strong>rue du Docteur Jacq</strong> entre l'église et la chapelle, le <strong>Vieux Pont Rouge</strong> (6) sur la Rivière d'Argent, et la <strong>Stèle de Victor Segalen</strong> (12), au-dessus du Gouffre (10).</p>
+
+  <h2 id="compte">Le compte, et la stèle</h2>
+  <div class="stele"><p>Un marcheur s'est assis là pour ne plus revenir. Pèse les six, lettre à lettre&nbsp;; compte à rebours les pierres qu'il laissa.</p></div>
+  <p>Peser une cité, c'est compter ses lettres. Lettres seules, sans traits d'union ni apostrophes.</p>
+  <div class="scroll">
+    <table>
+      <tbody>
+        <tr><td>Saint-Gilles-Croix-de-Vie</td><td class="num">21</td></tr>
+        <tr><td>Villedieu-les-Poêles</td><td class="num">18</td></tr>
+        <tr><td>Carcassonne</td><td class="num">11</td></tr>
+        <tr><td>Pont-l'Évêque</td><td class="num">11</td></tr>
+        <tr><td>Ounans</td><td class="num">6</td></tr>
+        <tr><td>Beaugency</td><td class="num">9</td></tr>
+        <tr><td><strong>Somme</strong></td><td class="num sol"><strong>76</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li>« Les pierres qu'il laissa » sont les <strong>soixante-quatre stèles</strong> du recueil de Segalen. Soixante-seize dépasse : c'est le titre <em>Cycle</em> qui débloque, le compte est circulaire.</li>
+    <li>« Compte <strong>à rebours</strong> » : on part de la dernière et l'on recule de 76 en bouclant. On tombe sur la <strong>douzième depuis la fin</strong>, soit la position <span class="sol">53</span>.</li>
+    <li>Ce poème s'appelle <em class="sol">À l'envers</em>. Compter à l'envers mène au poème qui porte ce nom : le mécanisme se signe lui-même.</li>
+  </ul>
+  <div class="stele">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--or);font-size:1.06rem">Vienne cette heure renversée, la Douzième&nbsp;: son moment, qu'il me sera doux&nbsp;!</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--or);font-size:1.06rem">À l'envers de ma nature les désirs alors agiront&nbsp;:</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--or);font-size:1.06rem">Peut-être alors me sentirai-je bon parmi les principes à l'envers&nbsp;?</p>
+    <p class="quiet" style="margin-top:.9rem;margin-bottom:0">La cinquante-troisième stèle, <em>À l'envers</em>.</p>
+  </div>
+  <p>Le poème ne se contente pas de porter ce titre : il dit <strong>la Douzième</strong>, puis « à l'envers de ma nature », puis « les principes à l'envers ». Trois fois en trois lignes. Qui arrive là ne peut plus douter de son compte. Et « la Douzième » répond à « il bat midi », six chants plus haut.</p>
+
+  <h2 id="sceau">Le sceau</h2>
+  <p>La phrase trouvée n'est pas la réponse : c'est la <strong>clé</strong>. Le bloc chiffré publié en bas de la page des énigmes était le dernier verrou.</p>
+  <div class="stele"><p class="chiffre">BRM NPIWLW YC KQSNIT&nbsp;: KEAMCLEH QS DLRVE, DWGAEAI PWJ WWEW, FK IM UVVXAH. MWEAYVIC, TM RA LSXL WF VVHOEESQV&nbsp;: LD VWO GMPN.</p></div>
+  <ul>
+    <li>Vigenère à <strong>clé courante</strong>, tabula recta, lettres seules.</li>
+    <li>La clé est le poème <em>À l'envers</em> <strong>lu à l'envers</strong> : ses lettres dans l'ordre inverse, de la dernière à la première.</li>
+    <li>Le renversement était le principe de toute la fin. Aucun coup de pouce n'était donné : le titre du poème suffisait.</li>
+  </ul>
+  <div class="stele">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--or);font-size:1.1rem;margin-bottom:0">« J'ai scellé un coffre&nbsp;: sapèques de Chine, monnaie des îles, or et argent. Voyageur, tu as tout su renverser&nbsp;: il est tien. »</p>
+  </div>
+
+  <h2 id="tresor">Le trésor</h2>
+  <p>Le texte déchiffré ne décrit pas le trésor : il le <strong>liste</strong>. Douze pièces, et chaque terme du sceau en désigne un lot.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ce que dit le sceau</th><th>Ce qu'il y a dans le coffre</th><th class="num">Pièces</th></tr></thead>
+      <tbody>
+        <tr><td class="sol">sapèques de Chine</td><td>sept sapèques au trou carré, le cycle chinois</td><td class="num">7</td></tr>
+        <tr><td class="sol">monnaie des îles</td><td>deux monnaies de Polynésie française, le cycle polynésien</td><td class="num">2</td></tr>
+        <tr><td class="sol">or</td><td>un panda d'or, un gramme</td><td class="num">1</td></tr>
+        <tr><td class="sol">argent</td><td>un panda d'argent de trente grammes, et la Semeuse</td><td class="num">2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="indice">L'indice supplémentaire</h2>
+  <p>Deux stances ont été publiées en cours de route, quand les cités ont commencé à sortir. Elles ne nomment rien et ne valident que par recoupement.</p>
+  <div class="stele">
+    <p>Au large, où nulle terre ne regarde, l'Île mystérieuse rencontre les Filles du feu, laissant derrière elle le plus beau ruisseau du monde.</p>
+    <p class="sep">o</p>
+    <p>Là-bas se traverse l'épée de l'archange&nbsp;; elle ne blesse que le diable.</p>
+  </div>
+  <ul>
+    <li><em>L'Île mystérieuse</em> est la droite de Verne, <em>Les Filles du feu</em> celle de Nerval : elles se rencontrent au large, au nord d'Ouessant, là où aucune côte ne les voit.</li>
+    <li>« Le plus beau ruisseau du monde » est la Charente, franchie par la première.</li>
+    <li><em>Là-bas</em> est la droite de Huysmans, et l'épée de l'archange est la <strong>ligne de saint Michel</strong>, cet alignement de sanctuaires que la légende tient pour le coup d'épée porté au diable. La droite la coupe en baie du Mont.</li>
+  </ul>
+  <figure>
+    <img src="assets/indice-complet.png" alt="Panneau peint à la manière des Nabis : une stèle gravée des deux stances, entourée d'un géant à l'équerre, d'un roi au bord d'une rivière, d'un peintre vêtu en prophète, de cœurs sur une portée, et d'une balance à l'équilibre.">
+    <figcaption>Le panneau publié avec l'indice. Rien n'y est décoratif.</figcaption>
+  </figure>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Sur le panneau</th><th>Ce que la figure recoupe</th></tr></thead>
+      <tbody>
+        <tr><td>La sardine d'argent, dans la rivière</td><td class="sol">Saint-Gilles-Croix-de-Vie</td></tr>
+        <tr><td>Le géant de Rabelais</td><td class="sol">Villedieu-les-Poêles</td></tr>
+        <tr><td>L'équerre du géant</td><td>l'angle droit du chant III : Villedieu vers Paris, puis Paris vers Carcassonne</td></tr>
+        <tr><td>Le roi, au bord de son ruisseau</td><td>la Charente</td></tr>
+        <tr><td>Les cœurs, posés sur la portée</td><td class="sol">Ounans, et la vieille chanson du Val d'Amour</td></tr>
+        <tr><td>Les deux clochers, joints d'un trait</td><td>les deux édifices religieux de Huelgoat, à joindre ; et la ligne de saint Michel</td></tr>
+        <tr><td>La balance à l'équilibre</td><td>peser une cité, c'est compter ses lettres : Avignon vaut 7</td></tr>
+        <tr><td>Le peintre vêtu en prophète</td><td>le nabi, et son tableau</td></tr>
+        <tr><td>Le granit</td><td>la Bretagne, et le titre du jeu</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="segalen">Les clins d'œil à Segalen</h2>
+  <p class="lead">Victor Segalen, né à Brest en 1878, mort le 21 mai 1919 dans la forêt de Huelgoat. Médecin de marine, poète, sinologue, archéologue. Il a écrit en Chine un recueil de soixante-quatre poèmes taillés comme des inscriptions sur pierre, <em>Stèles</em>. Il n'est nommé nulle part dans les sept chants, et pourtant il y est d'un bout à l'autre.</p>
+
+  <h3>La forme même des énigmes</h3>
+  <p>Des blocs de prose brève séparés d'un « o », des impératifs, des Concepts à majuscule, une chute d'une ligne. La stèle, chez lui, est une pierre qui parle à la première personne et qui regarde dans une direction : ses six sections sont orientées, face au Midi, du Nord, de l'Orient, de l'Occident, du Bord du chemin, du Milieu.</p>
+
+  <h3>Le titre</h3>
+  <p>Deux pierres, et c'est une biographie : le <strong>granit</strong> de Brest où il naît, le <strong>jade</strong> de la Chine où il écrit, le granit de Huelgoat où il meurt. Personne ne peut lire le titre avant d'avoir fini. Il a été choisi aussi pour ne rien trahir : cherché dans <em>Stèles</em>, « jade » ne mène qu'à deux poèmes inoffensifs, <em>Jade faux</em> et <em>Éloge du Jade</em>.</p>
+
+  <h3>Le Départ, qui est un poème</h3>
+  <p>« Deux frères, tels les enfants de Léda, se partagent déjà le <strong>Départ</strong>. » Cette majuscule n'est pas une coquetterie : <em>Départ</em> est un poème de <em>Stèles</em>. La toute première phrase du jeu porte déjà le nom d'une stèle, posée là comme une signature au dos d'un tableau.</p>
+
+  <h3>Midi, et la Douzième</h3>
+  <p>Midi sert au mécanisme, mais midi est aussi la douzième heure, et la première section de <em>Stèles</em> s'appelle <em>Stèles face au Midi</em>. Le compte final tombe sur la douzième stèle depuis la fin, et la stèle atteinte nomme elle-même « la Douzième ». Trois fois le même nombre, à trois endroits qui ne se parlent pas.</p>
+
+  <h3>Le marcheur assis pour ne plus revenir</h3>
+  <p>Le 21 mai 1919, on le retrouve assis au-dessus du Gouffre, dans un creux de verdure, son manteau plié sous lui, la vareuse de marine ouverte. Un pied déchaussé, la cheville entaillée, un mouchoir sanglant autour, un gobelet d'eau posé près de lui pour laver la plaie. « Ce regard au pied » n'est donc pas une figure de style : c'est le regard, et c'est le pied.</p>
+
+  <h3>Solitude, qui se dit deux fois</h3>
+  <p>Le tableau de Sérusier s'appelle <em>Solitude</em>. Mais quand Yvonne est venue chercher son mari, elle a su où aller sans chercher : c'était l'endroit où tous deux avaient trouvé, disait-elle, la solitude la plus inaccessible. Un tableau et une veuve emploient le même mot pour le même bout de forêt.</p>
+
+  <h3>Cycle</h3>
+  <p>Trois sens dans un mot. La <strong>consigne</strong> : le comptage est circulaire, il dépasse soixante-quatre et repart de la fin. La <strong>relecture</strong> : il faut reprendre les six chants en boucle. L'<strong>œuvre</strong> : c'est ainsi qu'on range Segalen depuis toujours, le cycle chinois, le cycle polynésien, le cycle archéologique.</p>
+
+  <h3>Un trésor qui est une biographie</h3>
+  <p>Les sapèques pour la Chine et les <em>Stèles</em>. Les monnaies de Polynésie pour <em>Les Immémoriaux</em>, et pour 1903, l'année où il débarque à Tahiti et où meurt Gauguin, dont il rachètera les effets aux Marquises. Le granit pour la Bretagne du début et de la fin.</p>
+
+  <div class="filet"></div>
+  <p>Un joueur pouvait résoudre la chasse entière sans jamais lire une ligne de lui. Il aura tout de même suivi son chemin.</p>
+
+  <footer>
+    <p><a href="/">Retour aux énigmes</a></p>
+    <p>Fond de carte de la triangulation : « Blank topographic map of France », Eric Gaba (utilisateur Sting) pour Wikipédia, sous licence <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, modifié pour y porter les six cités et les trois droites.</p>
+    <p>Le Jade et le Granit · MMXXVI</p>
+  </footer>
+
+</div>
 </body>
 </html>

@@ -138,6 +138,47 @@
       flex-shrink: 0;
     }
 
+    /* ——— Annonce de clôture ——— */
+    .annonce {
+      max-width: 38rem;
+      margin: 0 auto 4.5rem;
+      border: 1px solid var(--jade-sombre);
+      outline: 1px solid var(--trait);
+      outline-offset: 6px;
+      background: linear-gradient(160deg, var(--granit-clair), var(--pierre) 85%);
+      padding: 2.4rem clamp(1.4rem, 5vw, 2.6rem);
+      text-align: center;
+    }
+    .annonce h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: .4em;
+      text-indent: .4em;
+      text-transform: uppercase;
+      color: var(--jade);
+      margin-bottom: 1.6rem;
+    }
+    .annonce p {
+      color: var(--encre-pale);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .annonce p:last-child { margin-bottom: 0; }
+    .annonce .sol-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--jade);
+      text-decoration: none;
+      border: 1px solid var(--jade-sombre);
+      padding: .7rem 1.6rem;
+    }
+    .annonce .sol-link:hover { color: var(--encre); border-color: var(--jade); }
+
     /* ——— Stèles ——— */
     article {
       margin: 5.5rem 0;
@@ -370,8 +411,8 @@
     <header>
       <h1>Le Jade<span class="et">et</span>le Granit</h1>
       <div class="sceau" aria-hidden="true"></div>
-      <p class="intro fr">Le Jade et le Granit est une chasse au trésor : sept énigmes à résoudre pour remporter un véritable trésor — un lot de pièces d'une valeur d'au moins 300 euros. Le jeu est entièrement gratuit, et une seule personne l'emportera.</p>
-      <p class="intro en">Le Jade et le Granit is a treasure hunt: seven riddles to solve in order to win a real treasure — a set of coins worth at least €300. The game is entirely free, and only one person will claim it.</p>
+      <p class="intro fr">Le Jade et le Granit était une chasse au trésor : sept énigmes à résoudre pour remporter un lot de pièces d'une valeur d'au moins 300 euros. Le jeu était entièrement gratuit. Les énigmes restent ci-dessous, telles qu'elles ont été publiées.</p>
+      <p class="intro en">Le Jade et le Granit was a treasure hunt: seven riddles to solve for a set of coins worth at least €300. The game was free to play. The riddles are still below, exactly as they were published.</p>
       <div class="social">
         <a class="discord" href="https://discord.gg/MJvZ2rHR3p" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
@@ -383,6 +424,22 @@
         </a>
       </div>
     </header>
+
+    <section class="annonce">
+      <h2 class="fr">La chasse est terminée</h2>
+      <h2 class="en">The hunt is over</h2>
+
+      <p class="fr">Les sept énigmes ont été résolues. Celui qui est arrivé au bout a tenu à ce que la victoire revienne à la communauté : les pistes se sont échangées, les trouvailles se sont partagées, et il a estimé que personne n'avait marché seul.</p>
+      <p class="en">The seven riddles have been solved. The person who got there asked that the win go to the community instead: leads were traded, finds were shared, and as he saw it nobody walked the road alone.</p>
+
+      <p class="fr">Il a refusé le lot. Le coffre sera remis en jeu lors d'une prochaine chasse.</p>
+      <p class="en">He turned down the prize. The chest will be put back into play in a future hunt.</p>
+
+      <p class="fr">Merci à toutes celles et ceux qui ont cherché.</p>
+      <p class="en">Thank you to everyone who searched.</p>
+
+      <p><a class="sol-link fr" href="solutions.html">Lire les solutions</a><a class="sol-link en" href="solutions.html">Read the solutions</a></p>
+    </section>
 
     <p class="langnote en">The riddles must be solved in French. The English translation below each one is there only to help you understand it.</p>
 
@@ -512,10 +569,10 @@
     </section>
 
     <section class="apropos">
-      <h2 class="fr">Participer</h2>
-      <h2 class="en">How to play</h2>
-      <p class="fr">Résolvez les sept énigmes, déchiffrez le cryptogramme ci-dessus, puis envoyez le texte obtenu à <a href="mailto:lejadeetlegranit@youngteam.net">lejadeetlegranit@youngteam.net</a>, accompagné de votre cheminement complet&nbsp;: chaque étape et chaque solution. Une réponse sans le raisonnement détaillé ne sera pas retenue.</p>
-      <p class="en">Solve the seven riddles, decipher the cryptogram above, then send the resulting text to <a href="mailto:lejadeetlegranit@youngteam.net">lejadeetlegranit@youngteam.net</a>, along with your full reasoning: every step and every solution. An answer without detailed reasoning will not be accepted.</p>
+      <h2 class="fr">Après la chasse</h2>
+      <h2 class="en">After the hunt</h2>
+      <p class="fr">Le cryptogramme ci-dessus était le dernier verrou. Tout est maintenant expliqué, des six cités au dernier mot du sceau, sur la <a href="solutions.html">page des solutions</a>.</p>
+      <p class="en">The cryptogram above was the last lock. Everything is now explained, from the six cities to the final words of the seal, on the <a href="solutions.html">solutions page</a>.</p>
       <p class="fr">Pour échanger avec les autres chercheurs, rejoignez le <a href="https://discord.gg/MJvZ2rHR3p">Discord</a>.</p>
       <p class="en">To chat with other seekers, join the <a href="https://discord.gg/MJvZ2rHR3p">Discord</a>.</p>
       <p class="fr">Ce jeu vous plaît&nbsp;? Vous pouvez m'offrir un <a href="https://buymeacoffee.com/youngteam">café</a>.</p>
