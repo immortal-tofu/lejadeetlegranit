@@ -63,12 +63,6 @@
       font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic;
       font-size: 1.3rem; margin: 2.6rem 0 .8rem;
     }
-    h4 {
-      font-family: 'Cormorant Garamond', serif; font-weight: 500;
-      font-size: .78rem; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--encre-faible); margin: 2.4rem 0 .7rem;
-      scroll-margin-top: 2rem;
-    }
     p { margin-bottom: .9rem; }
     strong { color: var(--encre); font-weight: 600; }
     em { font-style: italic; }
@@ -113,9 +107,6 @@
     .toc { margin: 2.4rem 0 0; }
     .toc ul { gap: .3rem; }
     .toc li::before { top: .68em; }
-    .toc ul ul { margin: .3rem 0 0; }
-    .toc ul ul li { font-size: .92rem; }
-    .toc ul ul li::before { background: var(--trait); }
 
     table { width: 100%; border-collapse: collapse; font-size: .94rem; margin: 1.2rem 0; }
     th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--trait); vertical-align: top; }
@@ -164,9 +155,7 @@
     <ul>
       <li><a href="#forme">La forme</a></li>
       <li><a href="#titres">Les titres, et ce qu'ils apparient</a></li>
-      <li><a href="#cites">Les six cités</a>
-        <ul><li><a href="#lipogramme">Le lipogramme, au chant V</a></li></ul>
-      </li>
+      <li><a href="#cites">Les six cités</a></li>
       <li><a href="#droites">Les trois droites</a></li>
       <li><a href="#pas">Les six pas, et le parcours</a></li>
       <li><a href="#compte">Le compte, et la stèle</a></li>
@@ -246,12 +235,8 @@
     <li>Le <strong>Pieux</strong> est l'évêque. Ce qu'il en tire, « qui coule et fond sous le doigt », est le fromage carré qui porte son nom.</li>
   </ul>
 
-  <h3>V · Sylvie</h3>
+  <h3 id="lipogramme">V · Sylvie</h3>
   <div class="stele"><p>Georges a déjà tout dit, sauf la plus facile. Il a fait mille fois plus gros qu'ici. Pas de zéphyr sur ce kilt de tweed.</p></div>
-  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Ounans, au Val d'Amour</dd></div></dl>
-  <p>La seule cité qui ne soit pas dans son propre poème.</p>
-
-  <h4 id="lipogramme">Le lipogramme</h4>
   <p>Cette strophe ne cache pas une ville : elle donne une consigne, et cette consigne vaut pour les six poèmes.</p>
   <ul>
     <li><strong>Georges Perec</strong> a « tout dit » et a fait « mille fois plus gros » : un roman entier sans la lettre la plus facile. Le mot n'est jamais prononcé, mais la consigne est là, chercher ce qui <em>manque</em>.</li>
@@ -272,10 +257,7 @@
       </tbody>
     </table>
   </div>
-  <div class="stele">
-    <p style="font-family:'Courier Prime',monospace;letter-spacing:.36em;color:var(--or);font-size:1.1rem">O U N A N S</p>
-    <p class="quiet" style="margin-top:.8rem;margin-bottom:0">La cité du chant V, sortie de l'absence des six. L'acrostiche retombe sur un membre du groupe : le jeu se signe lui-même.</p>
-  </div>
+  <dl class="fiche"><div><dt>La cité</dt><dd class="sol">Ounans, au Val d'Amour</dd></div></dl>
 
   <h3>VI · Aurélia</h3>
   <div class="stele">
